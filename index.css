@@ -1,0 +1,301 @@
+
+:root {
+   --color-quaternary: #EDAB78;
+    --color-white: #FFFFFF;
+    --color-gray: #333333;
+}
+
+
+.header {
+    display: flex; /*gør, at headeren bruger flexbox-layout.*/
+    justify-content: space-between; /*sørger for, at børnene i headeren bliver placeret med plads imellem dem.*/
+    align-items: center; /*centrerer teksten inden i */
+    padding: 1.25rem; /*tilføjer indvendig afstand*/
+    background-color: var(--color-quaternary); /*sætter baggrundsfarven ved brug af variblen*/
+    position: relative; /*justere positionen i forhold til dens normale placering.*/
+    z-index: 1000; /*headeren vises foran andre elementer med lavere z-index.*/
+}
+
+.header nav ul li a {
+    color: var(--color-white);
+}
+
+.nav {
+    position: fixed;
+    top: 0; /*placerer navigationen i det øverste højre hjørne.*/
+    right: 0;
+    width: 100%;/*gør navigationen fuld bredde og højde*/
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /*sætter en semi-gennemsigtig sort baggrund*/
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s 0.3s;
+    z-index: 999; /*sikrer, at navigationen vises over de fleste andre elementer*/
+    transform: translateX(100%); /*flytter navigationen ud af skærmen*/
+    opacity: 0;/*gør navigationen usynlig.*/
+    visibility: hidden;
+    display: flex; /*bruger flexbox til centreret layout.*/
+    justify-content: center;
+    align-items: center; /*centrerer teksten inden i*/
+}
+.nav ul{
+    list-style-type: none; /*fjerner standard liste-punktopstilling
+    (typisk prikker tal eller bogstaver) fra
+    <ul> elementer. Dette gør, at punkterne ikke vises for hver listeindgang.*/
+}
+.nav_item {
+    padding: 0.625rem 0; /*tilføjer indvendig polstring (top og bund)*/
+    margin: 1.25rem 0; /*tilføjer mellemrum (top og bund) til */
+    text-align: center;/*centrerer teksten inden i */
+    font-size: 1.5rem; /*ætter fontstørrelsen til 1.5 rem, hvilket svarer til 24 pixels.*/
+    font-weight: 400; /*sætter fontvægten til normal (400).*/
+}
+
+.nav.active {   
+    transform: translateX(0); /*flytter .nav elementet vandret med 0 pixels,
+    hvilket betyder, at det forbliver på sin aktuelle position*/
+    opacity: 1;/*sætter gennemsigtigheden til 1, hvilket gør elementet fuldt synligt.*/
+    visibility: visible;/*gør elementet synligt*/
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    /*ngiver en overgangseffekt på 0.3 sekunder for både transform og opacity egenskaber,
+     med en glidende ind og ud bevægelse.*/
+}
+
+.menu-btn {
+    display: block; /*gør .menu-btn elementet til en blok, som strækker
+     sig over hele den tilgængelige bredde.*/
+    cursor: pointer; /*ændrer markøren til en hånd, når man peger på .menu-btn,
+     hvilket indikerer, at det er klik bart.*/
+    z-index: 1001; /*placerer .menu-btn foran de fleste andre elementer,
+    hvilket sikrer, at den er synlig.*/
+    position: relative; /*fastholder den relative positionering af .menu-btn i forhold til dens forælder.*/
+    width: 1.875rem; /*angiver bredden på .menu-btn.*/
+}
+
+.menu-btn_burger {
+    width: 1.5625rem; /*angiver linjerne*/
+    height: 0.125rem;
+    background-color: var(--color-gray);/* sætter farven på linjerne til en grå farve*/
+    margin: 0.3125rem 0; /*giver lidt plads over og under linjerne*/
+    transition: 0.3s; /* tilføjer en overgangseffekt på 0.3 sekunder for ændringer i linjernes udseende.*/
+    position: relative;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: ''; /*skaber indholdet for de pseudo-elementer, men det er tomt, så de ikke viser noget.*/
+    position: absolute;
+    width: 1.5625rem;
+    height: 0.125rem;
+    background-color: var(--color-gray);
+    transition: 0.3s;
+}
+
+.menu-btn_burger::before {
+    top: -0.5rem;  /*placering før, under burgeren fordi det er minus*/
+}
+
+.menu-btn_burger::after {
+    top: 0.5rem;   /* placering oppe*/
+}
+
+.menu-btn.active .menu-btn_burger {
+    background: transparent; /*skjuler elementer der ikke skal bruges, tryk på menuen den forsvinder*/
+}
+
+.menu-btn.active .menu-btn_burger::before {
+    transform: rotate(45deg); /*roterer selve burger menuen stregen 45 grader - øverste linje*/
+    top: 0;
+    background-color: var(--color-white);
+}
+
+.menu-btn.active .menu-btn_burger::after {
+    transform: rotate(-45deg); /*nederste linje som også bliver flyttet ned så det danner et kryds*/
+    top: 0;
+    background-color: var(--color-white);
+}
+
+body{
+    background-color:  #0D0D0C;
+}
+body {
+height: 100%; /* Ensure the body and html take up full height */
+margin: 0;
+display: flex; /* items is placed and stays when the size is changed*/
+flex-direction: column;/*the flex items are stacked vertically, one on top of the other*/
+font-family: Impact, Haettenschweiler,; /* Font */
+}
+
+body {
+display: flex;/* items is placed and stays when the size is changed*/
+flex-direction: column;/*the flex items are stacked vertically, one on top of the other*/
+}
+
+h3{
+    color: white;
+}
+*
+header {
+    display: flex; /* Gør header til en flex-container */
+    align-items: center; /* Centrerer flex-elementerne vandret*/
+    justify-content: space-between;/* Fordeler flex-elementerne med maksimal afstand imellem dem */
+   
+}
+
+
+.logo {
+    width: 350px;/* Sætter bredden af logoet til 100 pixels */
+    margin: 5px;/* Tilføjer en margin på 5 pixels rundt om logoet */
+}
+
+
+
+.form1 {
+    display: flex;                    /* Gør form1 til en flex-container */
+    flex-direction: column;           /* Arrangerer børnene i en kolonne */
+    align-items: center;              /* Centrerer indholdet vandret */
+    justify-content: center;          /* Centrerer indholdet lodoret */
+    margin-bottom: 20px;              /* Tilføjer en margin i bunden på 20 pixels */
+    width: 100%;                      /* Sætter bredden til 100% af containerens bredde */
+    color: white;                   /* Ændre farven på teksten*/
+    behavior: alternate;           /* Kommentarlinje, ignoreres af browseren */
+}
+
+.contact-form {
+    width: 100%;                      /* Sætter bredden af contact-form til 100% */
+    margin: 16px;                     /* Tilføjer en margin på 16 pixels rundt om contact-form */
+    display: flex;                    /* Gør contact-form til en flex-container */
+    flex-direction: column;           /* Arrangerer børnene i en kolonne */
+    align-items: center;              /* Centrerer indholdet vandret */
+    
+}
+
+.contact-form input {
+    width: 300px;
+}
+
+main {
+    display: flex;                    /* Gør main til en flex-container */
+    flex-direction: column;           /* Arrangerer børnene i en kolonne */
+    justify-content: center;          /* Centrerer indholdet lodret*/
+    align-items: center;              /* Centrerer indholdet vandret */
+}
+
+a:hover{
+    color: gray;
+}
+/*ændre tekstfarverne*/
+.gron {
+    background-color: #DECA7A;
+}
+
+.orange {
+    background-color: #EDAB78;
+}
+
+
+main {
+flex: 1; /* Allow the main content area to grow and fill the space so that it can push the footer down to the bottom */
+display: flex; /* items is placed and stays when the size is changed*/
+flex-direction: column;/*the flex items are stacked vertically, one on top of the other*/
+align-items: center;/*centers elements*/ 
+justify-content: center; /* Center the flex items along the main axis */
+
+}
+
+h1 {
+color: white; 
+display: flex;/* items is placed and stays when the size is changed*/
+justify-content: space-between;
+align-items: center;
+height: auto;
+}
+
+h2 {
+color: white;
+}
+
+p {
+color: white;
+}
+
+.container {
+position: relative; /* Make the container a positioning context */
+justify-content: center; /* Center contents */
+border: 3px solid white;
+padding: 10px;
+border-radius: 25px;
+display: flex; /* items is placed and stays when the size is changed*/
+flex-direction: column;
+width: 281px;
+height: 470px;
+align-items: center;
+background: linear-gradient(to bottom, #EDAB78, #DECA7A);
+}
+
+.avatar { 
+width: 95px;
+height: 95px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+
+footer {
+    background-color: #EDAB78; /* Footer background color */
+    color: black; /* Text color */
+    padding: 20px; /* Size */
+    text-align: right; /* Text position */
+    width: 100%; /* Ensure footer takes full width */
+    position: relative; /* Position the footer relative */
+    bottom: 0; /* Align the footer to the bottom */
+    left: 0;
+}
+
+.contact-info {
+display: flex; /* items is placed and stays when the size is changed*/
+flex-direction: column;
+align-items: right;
+gap: 20px;
+}
+
+.contact-item {
+display: flex;
+align-items: right;
+gap: 10px;
+}
+
+.contact-item i {
+font-size: 24px;
+}
+
+.contact-item a, .contact-item address {
+color: white;
+text-decoration: none;
+}
+
+.contact-item a:hover, .contact-item address:hover {
+text-decoration: underline;
+}
+
+img {
+max-width: 100%;
+display: block;
+height: auto;
+}
+
+.allContainers {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px){
+.allContainers {
+    display: flex;
+    flex-direction: row;
+}
+}
